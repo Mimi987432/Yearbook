@@ -1,0 +1,38 @@
+{% extends 'achievebase.html' %}
+{% block body_block %}
+  <div class="container">
+    <div class="jumbotron">
+      <h2 class=text-center>Achievements :</h2><br>
+      
+          {% csrf_token %}
+          {# A more "HTML" way of creating the login form#}
+          <table class="table table-striped">
+            
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Department</th>
+      <th>Roll Number</th>
+      <th>Email</th>
+      <th>Facebook</th>
+      <th>Address</th>
+      <th>About</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for x in seedata%}
+    <tr>
+      <td>{{x.name}}</td>
+      <td>{{x.department}}</td>
+      <td>{{x.roll}}</td>
+      <td>{{x.email}}</td>
+      <td>{{x.facebook}}</td>
+      <td>{{x.address}}</td>
+      <td>{{x.about}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+          </table>  
+        </div>
+  </div>
+{% endblock %}
